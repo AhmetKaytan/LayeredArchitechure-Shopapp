@@ -11,52 +11,26 @@
             font-weight: 700;
         }
     </style>
-    <title>Document</title>
+    <title>Shopapp</title>
 </head>
 <body>
 
-    @if (IsSectionDefined("MessageBox")){
-        @RenderSection("MessageBox")
-
-    }
-    else{
-        <div class="alert alert-primary text-center m-0">Hoşgeldiniz</div>
-    }
-
-    
-
     @await Html.PartialAsync("_navbar")
-    
-    @RenderSection("Header", false)
-    
-
     
     <main class="my-5">
         <div class="container">
-            @if(IsSectionDefined("Categories")){
-                <div class="row">
-                    <div class="col-md-3">
-                        @RenderSection("Categories", false)
-                    </div>
-                    <div class="col-md-9">
-                        @RenderBody()
-                    </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @RenderBody()
                 </div>
-            }
-            else{
-                <div class="row">
-                    <div class="col-md-12">
-                        @RenderBody()
-                    </div>
-                </div>
-            }
-            
+            </div>
         </div>
     </main>
 
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.css" integrity="sha512-99Jv9bnC6+yuTTtEXE6/KsSP9gND0QcWr67ruFLD1SFjuByhA8W7VY3OIqco8KToCVt98CAFoEPXcrsebU5mow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     @RenderSection("Scripts",false)
 
