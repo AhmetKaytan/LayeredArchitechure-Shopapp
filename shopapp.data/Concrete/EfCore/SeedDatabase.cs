@@ -39,5 +39,7 @@ namespace shopapp.data.Concrete.EfCore
             new Product(){Name="Samsung S8", Price=5000, Description="iyi telefon", ImageUrl="4.jpg", IsApproved=false},
             new Product(){Name="Samsung S9", Price=6000, Description="iyi telefon", ImageUrl="5.jpg", IsApproved=true}
         };
+
+
     }
 }
