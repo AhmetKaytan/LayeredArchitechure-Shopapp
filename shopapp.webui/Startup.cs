@@ -22,8 +22,12 @@ namespace shopapp.webui
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
             services.AddScoped<IProductRepository, EfCoreProductRepository>();
+
             services.AddScoped<IProductService, ProductManager>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+
             services.AddControllersWithViews();
         }
 
