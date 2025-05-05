@@ -22,6 +22,7 @@ namespace shopapp.data.Concrete.EfCore
                 if (context.Products.Count() == 0)
                 {
                     context.Products.AddRange(Products);
+                    context.AddRange(ProductCategories);
                 }
                 context.SaveChanges();
             }
@@ -40,6 +41,17 @@ namespace shopapp.data.Concrete.EfCore
             new Product(){Name="Samsung S9", Price=6000, Description="iyi telefon", ImageUrl="5.jpg", IsApproved=true}
         };
 
-
+        private static ProductCategory[] ProductCategories ={
+            new ProductCategory(){Product = Products[0], Category = Categories[0]},
+            new ProductCategory(){Product = Products[0], Category = Categories[2]},
+            new ProductCategory(){Product = Products[1], Category = Categories[0]},
+            new ProductCategory(){Product = Products[1], Category = Categories[2]},
+            new ProductCategory(){Product = Products[2], Category = Categories[0]},
+            new ProductCategory(){Product = Products[2], Category = Categories[2]},
+            new ProductCategory(){Product = Products[3], Category = Categories[0]},
+            new ProductCategory(){Product = Products[3], Category = Categories[2]},
+            new ProductCategory(){Product = Products[4], Category = Categories[0]},
+            new ProductCategory(){Product = Products[4], Category = Categories[2]},
+        };
     }
 }

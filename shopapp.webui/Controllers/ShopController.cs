@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using shopapp.business.Abstract;
 using shopapp.entity;
+using shopapp.webui.Models;
 
 namespace shopapp.webui.Controllers
 {
@@ -30,13 +31,17 @@ namespace shopapp.webui.Controllers
             {
                 return NotFound();
             }
-            Product product = _productService.GetById((int)id);
+            Product product = _productService.GetProductDetails((int)id);
 
             if (product == null)
             {
                 return NotFound();
             }
-            return View(product);
+            return View(new ProductDetailModel
+            {
+                Product = product,
+                Categories = product.ProductCategories.Select(i => i.Category).ToList()
+            });
         }
     }
 }
