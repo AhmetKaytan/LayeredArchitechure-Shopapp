@@ -30,6 +30,22 @@ namespace shopapp.data.Concrete.EfCore
             }
         }
 
+        public List<Product> GetProductsByCategory(string name)
+        {
+            using (var context = new ShopContext())
+            {
+                var products = context.Products.AsQueryable();
+                if (!string.IsNullOrEmpty(name))
+                {
+                    products = products
+                                    .Include(i => i.ProductCategories)
+                                    .ThenInclude(i => i.Category)
+                                    .Where(i => i.ProductCategories.Any(a => a.Category.Url == name));
+                }
+                return products.ToList();
+            }
+        }
+
         public List<Product> GetTop5Products()
         {
             using (var context = new ShopContext())

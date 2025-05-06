@@ -10,7 +10,7 @@ namespace shopapp.data.Abstract
     {
         Product GetProductDetails(int id);
         List<Product> GetPopularProducts();
-
+        List<Product> GetProductsByCategory(string name);
         List<Product> GetTop5Products();
     }
 }

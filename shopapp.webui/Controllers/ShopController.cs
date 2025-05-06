@@ -18,9 +18,9 @@ namespace shopapp.webui.Controllers
             this._productService = productService;
         }
 
-        public IActionResult List()
+        public IActionResult List(string category)
         {
-            var productViewModel = new ProductListViewModel() { Products = _productService.GetAll() };
+            var productViewModel = new ProductListViewModel() { Products = _productService.GetProductsByCategory(category) };
 
             return View(productViewModel);
         }
